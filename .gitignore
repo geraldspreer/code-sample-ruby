@@ -1,0 +1,33 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore code coverage
+/coverage/*
+
+# Ignore brakeman results
+/brakeman/*
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/public/system/events/images/*
+/public/system/events/pictures/*
+/app/invoices/*
+!/app/invoices/.keep
+/public/system/*
+/public/assets/.sprockets-manifest*.json
+/public/assets/*
+/tmp
+*.DS_Store
+tags
+.env
+.swp
+*.swo
+*.idea/*
+*.swp
+*.swm
+.project
