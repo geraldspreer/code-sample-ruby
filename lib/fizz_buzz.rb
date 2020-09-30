@@ -2,9 +2,12 @@
 
 class FizzBuzz
   def decide(number)
-    return number unless [3, 5, 15].include? number
-    return 'fizzbuzz' if number == 15
+    return 'fizzbuzz' if (number % 5).zero? && (number % 3).zero?
+    return 'fizz' if (number % 3).zero?
+    return 'buzz' if (number % 5).zero?
 
-    number == 5 ? 'buzz' : 'fizz'
+    # First have this here and fail
+    # return 'fizzbuzz' if (number % 5).zero? && (number % 3).zero?
+    number
   end
 end
