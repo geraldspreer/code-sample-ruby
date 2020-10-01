@@ -4,8 +4,7 @@ class FizzBuzz
   def decide(input)
     number = NumberToDecideOn.new(input)
 
-    return 'fizzbuzz' if number.divisible_by(15)
-    # return 'fizzbuzz' if number.divisible_by(3) && number.divisible_by(5)
+    return 'fizzbuzz' if number.divisible_by(3 * 5)
     return 'fizz' if number.divisible_by 3
     return 'buzz' if number.divisible_by 5
 
