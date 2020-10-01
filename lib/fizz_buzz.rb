@@ -4,12 +4,11 @@ class FizzBuzz
   def decide(input)
     number = NumberToDecideOn.new(input)
 
-    return 'fizzbuzz' if number.is.divible_by_tree_and_five
-    return 'fizz' if number.is.divible_by_tree
-    return 'buzz' if number.is.divible_by_five
+    return 'fizzbuzz' if number.divisible_by(15)
+    # return 'fizzbuzz' if number.divisible_by(3) && number.divisible_by(5)
+    return 'fizz' if number.divisible_by 3
+    return 'buzz' if number.divisible_by 5
 
-    # First have this here and fail
-    # return 'fizzbuzz' if (number % 5).zero? && (number % 3).zero?
     input
   end
 end
@@ -19,23 +18,7 @@ class NumberToDecideOn
     @number = number
   end
 
-  def be(method)
-    send method
-  end
-
-  def is
-    self
-  end
-
-  def divible_by_tree_and_five
-    divible_by_tree && divible_by_five
-  end
-
-  def divible_by_tree
-    (@number % 3).zero?
-  end
-
-  def divible_by_five
-    (@number % 5).zero?
+  def divisible_by(number)
+    (@number % number).zero?
   end
 end
