@@ -3,35 +3,47 @@
 require 'fizz_buzz'
 
 RSpec.describe FizzBuzz do
-  context 'when number is divisible only by 3' do
-    [3, 6, 9, 12, 18, 21, 24, 27].each do |divisible_by_three|
-      it "#{divisible_by_three} should give fizz" do
-        expect(subject.ask_about(divisible_by_three)).to eq 'fizz'
-      end
+  [
+    { number: 1,  result: 1          },
+    { number: 2,  result: 2          },
+    { number: 3,  result: 'fizz'     },
+    { number: 5,  result: 'buzz'     },
+    { number: 6,  result: 'fizz'     },
+    { number: 10, result: 'buzz'     },
+    { number: 15, result: 'fizzbuzz' },
+    { number: 16, result: 16         },
+    { number: 17, result: 17         },
+    { number: 18, result: 'fizz'     },
+    { number: 20, result: 'buzz'     },
+    { number: 21, result: 'fizz'     },
+    { number: 22, result: 22         },
+    { number: 30, result: 'fizzbuzz' },
+    { number: 39, result: 'fizz'     },
+    { number: 25, result: 'buzz'     },
+  ].each do | test |
+
+    it "#{test[:number]} gives #{test[:result]}" do
+      expect(subject.ask_about test[:number]).to eq test[:result]
     end
   end
 
-  context 'when number is divisible only by 5' do
-    [5, 10, 20, 25, 35, 40].each do |divisible_by_five|
-      it "#{divisible_by_five} gives buzz" do
-        expect(subject.ask_about(divisible_by_five)).to eq 'buzz'
-      end
-    end
-  end
+  describe 'when script is run by itself' do
+    result = `ruby ./lib/fizz_buzz.rb`.split("\n")
 
-  context 'when number is divisible by 3 and 5' do
-    [15, 30, 45, 60, 90].each do |divisible_by_three_and_five|
-      it "#{divisible_by_three_and_five} gives fizzbuzz" do
-        expect(subject.ask_about(divisible_by_three_and_five)).to eq 'fizzbuzz'
-      end
+    it 'fizz occurs 27 times' do
+      expect(result.count 'fizz').to eq 27
     end
-  end
 
-  context 'any other number' do
-    [1, 2, 4, 7, 8, 11, 13, 16].each do |any_other_number|
-      it "#{any_other_number} just gets printed" do
-        expect(subject.ask_about(any_other_number)).to eq any_other_number
-      end
+    it 'buzz occurs 14 times' do
+      expect(result.count 'buzz').to eq 14
+    end
+
+    it 'fizzbuzz occurs 6 times' do
+      expect(result.count 'fizzbuzz').to eq 6
+    end
+
+    it '100 results in total' do
+      expect(result.count).to eq 100
     end
   end
 end

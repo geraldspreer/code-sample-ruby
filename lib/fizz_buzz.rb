@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-# frozen_string_literal: false
 
 class FizzBuzz
   def ask_about(number_to_check)
@@ -17,8 +16,8 @@ class FizzBuzzNumber
     @number = number
   end
 
-  def divisible_by?(number)
-    (@number % number).zero?
+  def divisible_by?(divisor)
+    (@number % divisor).zero?
   end
 end
 
