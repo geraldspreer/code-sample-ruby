@@ -97,4 +97,4 @@ end
 
 ```
 
-I like Ruby. What a beautiful language.
+I like Ruby. It's a beautiful language.
